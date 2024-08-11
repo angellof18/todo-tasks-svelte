@@ -6,16 +6,20 @@
 </script>
 
 <main>
+    <h1>To-Do</h1>
     <form class="addForm" method="POST" action="?/add">
+        <!-- svelte-ignore a11y-autofocus -->
         <input
             class="add"
             name="task"
             type="text"
             placeholder="Ingresa tu Tarea..."
             required
+            autofocus
             autocomplete="off"
         />
-        <button type="submit">Agregar</button>
+        <button class="addBtn" type="submit"><i class="bi bi-plus-lg" /></button
+        >
     </form>
 
     {#if todos}
@@ -43,12 +47,18 @@
 
 <style>
     :root {
-        color-scheme: light dark;
-        accent-color: cyan;
+        accent-color: #0f67b1;
     }
 
     * {
         box-sizing: border-box;
+    }
+
+    .addBtn {
+        border-radius: 50%;
+        padding: 0.5rem 0.75rem;
+        background: #0f67b1;
+        color: white;
     }
 
     .checkbox {
@@ -75,7 +85,7 @@
         padding: 1rem;
         gap: 0.5rem;
         border-radius: 10px;
-        background-color: light-dark(#e8e8e8, #333);
+        box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.08);
     }
 
     .underlined {
@@ -83,12 +93,14 @@
     }
 
     .addForm {
+        width: 70%;
         display: flex;
         gap: 0.5rem;
     }
 
     .add {
         flex-grow: 1;
+        min-width: 75px;
     }
 
     main {
